@@ -10,8 +10,8 @@ router.post("/", async (req, res, next) => {
         const { userId, destinationCountry, startDate, endDate, budget } = req.body;
         //console.log("REQ", req.body)
 
-        if (destinationCountry, startDate, endDate, budget) {
-            const trip = await Trip.create(destinationCountry, startDate, endDate, budget, userId)
+        if (userId, destinationCountry, startDate, endDate, budget) {
+            const trip = await Trip.create({ userId, destinationCountry, startDate, endDate, budget })
             return res.status(200).send(trip)
         } else {
             return res.
