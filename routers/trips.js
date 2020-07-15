@@ -5,6 +5,18 @@ const Trip = require("../models").trip
 
 const router = new Router();
 
+
+router.get("/:userId", async (req, res, next) => {
+    const userId = parseInt(req.params.userId)
+    try {
+        const trips = await Trip.findAll({ where: { userId } })
+        return res.status(200).send(trips)
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+
 router.post("/", async (req, res, next) => {
     try {
         const { userId, destinationCountry, startDate, endDate, budget } = req.body;
