@@ -4,15 +4,16 @@ const loggerMiddleWare = require("morgan");
 const corsMiddleWare = require("cors");
 const { PORT } = require("./config/constants");
 const authRouter = require("./routers/auth")
+const tripsRouter = require("./routers/trips")
 const authMiddleWare = require("./auth/middleware");
 
 const app = express();
- /* We are configuring cors to accept all incoming requests
- * If you want to limit this, you can look into "white listing" only certain domains
- *
- * docs: https://expressjs.com/en/resources/middleware/cors.html
- *
- */
+/* We are configuring cors to accept all incoming requests
+* If you want to limit this, you can look into "white listing" only certain domains
+*
+* docs: https://expressjs.com/en/resources/middleware/cors.html
+*
+*/
 app.use(corsMiddleWare());
 app.use(loggerMiddleWare("dev"));
 /**
@@ -54,6 +55,7 @@ if (process.env.DELAY) {
  */
 
 app.use("/", authRouter);
+app.use("/trips", tripsRouter);
 
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
