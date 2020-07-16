@@ -11,9 +11,9 @@ module.exports = {
       destinationCountry: {
         type: Sequelize.STRING,
       },
-      destinationCity: {
-        type: Sequelize.STRING,
-      },
+      // destinationCity: {
+      //   type: Sequelize.STRING,
+      // },
       budget: {
         type: Sequelize.INTEGER,
       },

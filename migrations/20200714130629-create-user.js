@@ -20,15 +20,15 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
       },
-      city: {
-        type: Sequelize.STRING,
-      },
-      country: {
-        type: Sequelize.STRING,
-      },
-      currency: {
-        type: Sequelize.STRING,
-      },
+      // city: {
+      //   type: Sequelize.STRING,
+      // },
+      // country: {
+      //   type: Sequelize.STRING,
+      // },
+      // currency: {
+      //   type: Sequelize.STRING,
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
