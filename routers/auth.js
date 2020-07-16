@@ -47,8 +47,8 @@ router.post("/signup", async (req, res) => {
       email,
       password: bcrypt.hashSync(password, SALT_ROUNDS),
       name,
-      //city,
-      //country
+      city,
+      country,
     });
 
     delete newUser.dataValues["password"]; // don't send back the password hash
