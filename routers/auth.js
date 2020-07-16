@@ -35,18 +35,20 @@ router.post("/login", async (req, res, next) => {
 });
 
 router.post("/signup", async (req, res) => {
-    const { email, password, name } = req.body;
-    console.log("REQUEST BODY:", req.body)
-    if (!email || !password || !name) {
+  const { email, password, name, city, country } = req.body;
+  console.log("REQUEST BODY:", req.body)
+  if (!email || !password || !name || !city || !country) {
     return res.
       status(400).
-      send({message: "Please provide an email, password, a name"});
-    }
-    try {
+      send({ message: "Please provide an email, password, a name" });
+  }
+  try {
     const newUser = await User.create({
       email,
       password: bcrypt.hashSync(password, SALT_ROUNDS),
       name,
+      city,
+      country
     });
 
     delete newUser.dataValues["password"]; // don't send back the password hash
@@ -54,7 +56,7 @@ router.post("/signup", async (req, res) => {
     const token = toJWT({ userId: newUser.id });
 
     res.status(201).json({ token, ...newUser.dataValues });
-    } catch (error) {
+  } catch (error) {
     if (error.name === "SequelizeUniqueConstraintError") {
       return res
         .status(400)
