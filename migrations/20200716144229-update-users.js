@@ -29,8 +29,6 @@ module.exports = {
           type: Sequelize.STRING,
         },
       ),
-      queryInterface.removeColumn('users', 'address'),
-      queryInterface.removeColumn('users', 'budget'),
     ]);
   },
 
@@ -40,6 +38,7 @@ module.exports = {
       queryInterface.removeColumn('users', 'city'),
       queryInterface.removeColumn('users', 'country'),
       queryInterface.removeColumn('users', 'currency'),
+      queryInterface.removeColumn('trips', 'destinationCity'),
     ]);
   },
 };
