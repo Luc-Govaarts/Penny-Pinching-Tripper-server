@@ -10,7 +10,9 @@
     "migrate": "npx sequelize-cli db:migrate",
     "seed": "npx sequelize-cli db:seed:all",
     "resetDB": "npx sequelize-cli db:migrate:undo:all && npm run initdev",
-    "heroku:init": "npx sequelize-cli db:create",
+    "heroku:init": "npx sequelize-cli db:migrate",
+    "heroku:reset": "npx sequelize-cli db:seed:undo:all",
+    "heroku:migrate": "npx sequelize-cli db:migrate:undo:all",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
