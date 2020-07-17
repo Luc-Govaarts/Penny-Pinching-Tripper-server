@@ -1,1 +1,1 @@
-release: npm run resetDB
+release: npm run heroku:init
