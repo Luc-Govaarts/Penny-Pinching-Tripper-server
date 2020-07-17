@@ -20,7 +20,7 @@ router.get("/:userId", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
     try {
         const { userId, destinationCountry, startDate, endDate, budget } = req.body;
-        //console.log("REQ", req.body)
+        console.log("REQ", req.body)
 
         if (userId, destinationCountry, startDate, endDate, budget) {
             const trip = await Trip.create({ userId, destinationCountry, startDate, endDate, budget })
@@ -32,7 +32,7 @@ router.post("/", async (req, res, next) => {
         }
     } catch (error) {
         console.log(error);
-        return res.status(400).send({ message: "Something went wrong, sorry" });
+        return res.status(401).send({ message: "Something went wrong, sorry" });
     }
 });
 
