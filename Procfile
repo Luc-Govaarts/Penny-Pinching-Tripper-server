@@ -1,1 +1,1 @@
-release: npx sequelize-cli db:migrate
+release: npm run resetDB
