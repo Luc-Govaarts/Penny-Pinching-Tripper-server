@@ -27,12 +27,12 @@ router.post("/", async (req, res, next) => {
             return res.status(200).send(trip)
         } else {
             return res.
-                status(400).
+                status(401).
                 send(`Missing parameters`)
         }
     } catch (error) {
         console.log(error);
-        return res.status(401).send({ message: "Something went wrong, sorry" });
+        return res.status(400).send({ message: "Something went wrong, sorry" });
     }
 });
 
