@@ -1,1 +1,1 @@
-release: npm run heroku:reset && npm run heroku:migrate && npm run heroku:init
+release: npm run heroku:migrate && npm run heroku:init
