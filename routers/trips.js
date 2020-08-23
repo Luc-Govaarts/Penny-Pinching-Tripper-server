@@ -6,6 +6,7 @@ const Trip = require("../models").trip
 const router = new Router();
 
 
+
 router.get("/:userId", async (req, res, next) => {
     const userId = parseInt(req.params.userId)
     try {
